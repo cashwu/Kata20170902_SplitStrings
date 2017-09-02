@@ -50,14 +50,16 @@ namespace Kata20170902_SplitStrings
     {
         public string[] Solution(string str)
         {
+            str = str.Length % 2 == 0 ? str : str + "_";
+
             if (str.Length > 2)
             {
                 var firstItem = str.Substring(0, 2);
-                var secondItem = str.Substring(2).Length == 2 ? str.Substring(2) : str.Substring(2) + "_";
+                var secondItem = str.Substring(2);
                 return new[] { firstItem, secondItem };
             }
 
-            return new[] { str.Length % 2 == 0 ? str : str + "_" };
+            return new[] { str };
         }
     }
 }
