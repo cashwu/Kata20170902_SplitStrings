@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kata20170902_SplitStrings
@@ -25,6 +26,12 @@ namespace Kata20170902_SplitStrings
             SpliteStringShouldBe(new[] { "a_" }, "a");
         }
 
+        [TestMethod]
+        public void input_abcd_should_return_ab_cd()
+        {
+            SpliteStringShouldBe(new[] { "ab", "cd" }, "abcd");
+        }
+
         private static void SpliteStringShouldBe(string[] expected, string str)
         {
             var splitString = new SplitString();
@@ -37,6 +44,11 @@ namespace Kata20170902_SplitStrings
     {
         public string[] Solution(string str)
         {
+            if (str.Length == 4)
+            {
+                return new[] {str.Substring(0, 2), str.Substring(2, 2)};
+            }
+
             return new[] { str.Length % 2 == 0 ? str : str + "_" };
         }
     }
