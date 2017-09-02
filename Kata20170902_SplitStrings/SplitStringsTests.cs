@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Kata20170902_SplitStrings
 {
     [TestClass]
-    public class UnitTest1
+    public class SplitStringsTests
     {
         [TestMethod]
         public void TestMethod1()
