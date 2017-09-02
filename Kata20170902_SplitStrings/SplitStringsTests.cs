@@ -10,7 +10,13 @@ namespace Kata20170902_SplitStrings
         [TestMethod]
         public void input_ab_should_return_ab()
         {
-            SpliteStringShouldBe(new[] {"ab"}, "ab");
+            SpliteStringShouldBe(new[] { "ab" }, "ab");
+        }
+
+        [TestMethod]
+        public void input_bc_should_return_bc()
+        {
+            SpliteStringShouldBe(new[] { "bc" }, "bc");
         }
 
         private static void SpliteStringShouldBe(string[] expected, string str)
@@ -25,7 +31,7 @@ namespace Kata20170902_SplitStrings
     {
         public string[] Solution(string str)
         {
-            return new[] {"ab"};
+            return new[] { str };
         }
     }
 }
