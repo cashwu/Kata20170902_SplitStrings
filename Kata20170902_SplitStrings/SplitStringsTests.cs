@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kata20170902_SplitStrings
@@ -57,14 +54,9 @@ namespace Kata20170902_SplitStrings
     {
         public string[] Solution(string str)
         {
-            str = str.Length % 2 == 0 ? str : str + "_";
-            var result = new List<string>();
-            for (var i = 0; i < str.Length; i += 2)
-            {
-                result.Add(str.Substring(i, 2));
-            }
-
-            return result.ToArray();
+            str = str.Length % 2 == 0 ? str : str + "_"; 
+            return Enumerable.Range(0, str.Length / 2)
+                .Select(idx => str.Substring(idx * 2, 2)).ToArray();
         }
     }
 }
