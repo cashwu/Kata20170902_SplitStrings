@@ -19,6 +19,12 @@ namespace Kata20170902_SplitStrings
             SpliteStringShouldBe(new[] { "bc" }, "bc");
         }
 
+        [TestMethod]
+        public void input_a_should_return_a_()
+        {
+            SpliteStringShouldBe(new[] { "a_" }, "a");
+        }
+
         private static void SpliteStringShouldBe(string[] expected, string str)
         {
             var splitString = new SplitString();
@@ -31,7 +37,7 @@ namespace Kata20170902_SplitStrings
     {
         public string[] Solution(string str)
         {
-            return new[] { str };
+            return new[] { str.Length % 2 == 0 ? str : str + "_" };
         }
     }
 }
