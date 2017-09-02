@@ -32,6 +32,12 @@ namespace Kata20170902_SplitStrings
             SpliteStringShouldBe(new[] { "ab", "cd" }, "abcd");
         }
 
+        [TestMethod]
+        public void input_abc_should_return_ab_c_()
+        {
+            SpliteStringShouldBe(new[] { "ab", "c_" }, "abc");
+        }
+
         private static void SpliteStringShouldBe(string[] expected, string str)
         {
             var splitString = new SplitString();
@@ -44,9 +50,11 @@ namespace Kata20170902_SplitStrings
     {
         public string[] Solution(string str)
         {
-            if (str.Length == 4)
+            if (str.Length > 2)
             {
-                return new[] {str.Substring(0, 2), str.Substring(2, 2)};
+                var firstItem = str.Substring(0, 2);
+                var secondItem = str.Substring(2).Length == 2 ? str.Substring(2) : str.Substring(2) + "_";
+                return new[] { firstItem, secondItem };
             }
 
             return new[] { str.Length % 2 == 0 ? str : str + "_" };
